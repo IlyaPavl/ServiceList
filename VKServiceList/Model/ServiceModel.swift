@@ -16,7 +16,7 @@ struct Body: Codable {
     let services: [Service]
 }
 
-struct Service: Codable {
+struct Service: Codable, Hashable {
     let name, description: String
     let link: String
     let iconURL: String

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4861981C2D5B7AD900843707 /* SCNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861981B2D5B7AD000843707 /* SCNetworkManager.swift */; };
+		4861981E2D5B7AFF00843707 /* ServicesDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861981D2D5B7AFF00843707 /* ServicesDataFetcher.swift */; };
+		486198A12D5B7FBA00843707 /* ServiceViewModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486198A02D5B7FBA00843707 /* ServiceViewModelNew.swift */; };
+		486198A52D5B8EC200843707 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486198A42D5B8EC200843707 /* WebImageView.swift */; };
+		486198A82D5B90A400843707 /* ServiceTableVCNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486198A72D5B909300843707 /* ServiceTableVCNew.swift */; };
+		486198AA2D5B927E00843707 /* ServiceTableViewCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486198A92D5B927E00843707 /* ServiceTableViewCellNew.swift */; };
 		C794BA482BB716CE006594E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C794BA472BB716CE006594E5 /* AppDelegate.swift */; };
 		C794BA4A2BB716CE006594E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C794BA492BB716CE006594E5 /* SceneDelegate.swift */; };
 		C794BA512BB716D0006594E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C794BA502BB716D0006594E5 /* Assets.xcassets */; };
@@ -21,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4861981B2D5B7AD000843707 /* SCNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNetworkManager.swift; sourceTree = "<group>"; };
+		4861981D2D5B7AFF00843707 /* ServicesDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesDataFetcher.swift; sourceTree = "<group>"; };
+		486198A02D5B7FBA00843707 /* ServiceViewModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModelNew.swift; sourceTree = "<group>"; };
+		486198A42D5B8EC200843707 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		486198A72D5B909300843707 /* ServiceTableVCNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableVCNew.swift; sourceTree = "<group>"; };
+		486198A92D5B927E00843707 /* ServiceTableViewCellNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCellNew.swift; sourceTree = "<group>"; };
 		C794BA442BB716CE006594E5 /* VKServiceList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKServiceList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C794BA472BB716CE006594E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C794BA492BB716CE006594E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +59,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4861981A2D5B7AC400843707 /* NewService */ = {
+			isa = PBXGroup;
+			children = (
+				4861981B2D5B7AD000843707 /* SCNetworkManager.swift */,
+				4861981D2D5B7AFF00843707 /* ServicesDataFetcher.swift */,
+			);
+			path = NewService;
+			sourceTree = "<group>";
+		};
+		4861989F2D5B7DF300843707 /* VKServiceListNew */ = {
+			isa = PBXGroup;
+			children = (
+				486198A62D5B905A00843707 /* NewView */,
+				486198A32D5B8EAD00843707 /* Extensions */,
+				486198A22D5B7FC600843707 /* NewViewModel */,
+				4861981A2D5B7AC400843707 /* NewService */,
+			);
+			path = VKServiceListNew;
+			sourceTree = "<group>";
+		};
+		486198A22D5B7FC600843707 /* NewViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				486198A02D5B7FBA00843707 /* ServiceViewModelNew.swift */,
+			);
+			path = NewViewModel;
+			sourceTree = "<group>";
+		};
+		486198A32D5B8EAD00843707 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				486198A42D5B8EC200843707 /* WebImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		486198A62D5B905A00843707 /* NewView */ = {
+			isa = PBXGroup;
+			children = (
+				486198A72D5B909300843707 /* ServiceTableVCNew.swift */,
+				486198A92D5B927E00843707 /* ServiceTableViewCellNew.swift */,
+			);
+			path = NewView;
+			sourceTree = "<group>";
+		};
 		C794BA3B2BB716CE006594E5 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +128,7 @@
 				C794BA5C2BB7178B006594E5 /* ViewModel */,
 				C794BA5F2BB717C6006594E5 /* Network */,
 				C794BA5E2BB7179F006594E5 /* System */,
+				4861989F2D5B7DF300843707 /* VKServiceListNew */,
 				C794BA502BB716D0006594E5 /* Assets.xcassets */,
 				C794BA522BB716D0006594E5 /* LaunchScreen.storyboard */,
 				C794BA552BB716D0006594E5 /* Info.plist */,
@@ -192,7 +250,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				486198A52D5B8EC200843707 /* WebImageView.swift in Sources */,
+				4861981C2D5B7AD900843707 /* SCNetworkManager.swift in Sources */,
+				486198AA2D5B927E00843707 /* ServiceTableViewCellNew.swift in Sources */,
+				4861981E2D5B7AFF00843707 /* ServicesDataFetcher.swift in Sources */,
 				C794BA6D2BB732E9006594E5 /* ServiceTableViewController.swift in Sources */,
+				486198A82D5B90A400843707 /* ServiceTableVCNew.swift in Sources */,
+				486198A12D5B7FBA00843707 /* ServiceViewModelNew.swift in Sources */,
 				C794BA692BB71D6B006594E5 /* APIURLs.swift in Sources */,
 				C794BA652BB71D09006594E5 /* NetworkManager.swift in Sources */,
 				C794BA672BB71D4B006594E5 /* APIErrors.swift in Sources */,
