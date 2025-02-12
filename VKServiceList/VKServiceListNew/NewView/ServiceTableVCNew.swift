@@ -11,20 +11,13 @@ final class ServiceTableVCNew: UIViewController {
     enum Section {
         case main
     }
-
-    private let viewModel: ServiceViewModelNew
+    
+    private var viewModel = ServiceViewModelNew()
     private var tableView: UITableView!
     private var dataSource: UITableViewDiffableDataSource<Section, Service>!
     private var currentLoadingTask: Task<Void, Never>?
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
-
-    init(viewModel: ServiceViewModelNew) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -47,7 +40,7 @@ final class ServiceTableVCNew: UIViewController {
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .refresh, primaryAction: action)
         tableView = UITableView(frame: view.bounds, style: .plain)
-        tableView.register(ServiceTableViewCellNew.self, forCellReuseIdentifier: ServiceTableViewCellNew.cellIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         view.addSubview(tableView)
         
@@ -57,13 +50,16 @@ final class ServiceTableVCNew: UIViewController {
 
     private func configureDataSource() {
         dataSource = UITableViewDiffableDataSource<Section, Service>(tableView: tableView) { tableView, indexPath, service in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ServiceTableViewCellNew.cellIdentifier,
-                                                           for: indexPath) as? ServiceTableViewCellNew else {
-                fatalError("Unable to dequeue ServiceTableViewCellNew")
-            }
-            cell.configureCell(serviceImageURL: service.iconURL,
-                               serviceLabel: service.name,
-                               descriptionLabel: service.description)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            
+            var contentConfig = ServiceContentConfiguration()
+            contentConfig.serviceImageURL = service.iconURL
+            contentConfig.serviceLabel = service.name
+            contentConfig.descriptionLabel = service.description
+            
+            cell.contentConfiguration = contentConfig
+            cell.accessoryType = .disclosureIndicator
+            
             return cell
         }
     }
@@ -82,16 +78,8 @@ final class ServiceTableVCNew: UIViewController {
         applySnapshot(animated: false)
         
         currentLoadingTask = Task {
-            do {
-                await viewModel.getServiceData()
-                if !Task.isCancelled {
-                    applySnapshot()
-                }
-            }
-            
-            if !Task.isCancelled {
-                activityIndicator.stopAnimating()
-            }
+            await viewModel.getServiceData()
+            activityIndicator.stopAnimating()
         }
     }
 }

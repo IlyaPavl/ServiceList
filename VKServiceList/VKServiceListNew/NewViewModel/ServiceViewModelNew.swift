@@ -11,7 +11,14 @@ protocol ServiceViewModelDelegateProtocol: AnyObject {
     func viewModelDataDidUpdate()
 }
 
-final class ServiceViewModelNew {
+protocol ServiceViewModelProtocol {
+    var services: [Service] { get }
+    var onDataUpdated: (() -> Void)? { get set }
+    func service(at index: Int) -> Service
+    func getServiceData() async
+}
+
+final class ServiceViewModelNew: ServiceViewModelProtocol {
     let serviceFetcher: ServicesDataFetcherProtocol = ServicesDataFetcher(networkService: SCNetworkService())
     var services: [Service] = []
     var onDataUpdated: (() -> Void)?
